@@ -9,19 +9,22 @@ At it's core, it adds some scripts for easier usage of the [yadm](https://github
 ### Prerequisites
 
 * Debian distro based OS (with aptitude package manager) (tested on Ubuntu 20.04)
-* sudo privileges onyour system
+* sudo privileges on your device or system
 
 ### Installation
+
+To install run the command:
 
 ```shell
 $ . <(curl -L https://apajo.github.io/sysenv/install)
 ```
 
+> you will be prompted for your __repository url__ and __device name__ (or branch in git)
+
 This will install you few applications:
 * [sysenv](https://github.com/apajo/sysenv) - helper scripts for [yadm](https://github.com/TheLocehiliosan/yadm/)
 * [yadm](https://github.com/TheLocehiliosan/yadm/) - a git wrapper with some extra functionality
 * [git](https://github.com/git/git) - for managing your repository
-
 
 It also adds `syadm` command your shell - it's yadm with sudo privileges (for system file backup)
 
@@ -35,18 +38,7 @@ There are several [sysenv](https://github.com/apajo/sysenv) commands available, 
 * __load__ - load your configuration from the repository
 * __setup__ - setup your repo and branch (or "device name")
 
-### Usage
-
-#### Install
-
-Install the application with command:
-```shell
-$ . <(curl -L https://apajo.github.io/sysenv/install)
-```
-
-After installation you are prompted for your __repository url__ and __device name__ (wich is used as the branch name of your repo)
-
-#### Basic
+### Basic usage
 
 1) Add files to backup:
 ```shell
@@ -65,6 +57,13 @@ $ sysenv save
 
 > Note! As with [git](https://github.com/git/git), after adding files, they will be tracked.
 
+#### Load changes from another device
+
+If you've done any changes to the repository from another device you can load them with:
+```shell
+$ sysenv load
+```
+
 #### Changing repository (and branch)
 ```bash
 $ sysenv setup [url] [device/branch]
@@ -72,6 +71,7 @@ $ sysenv setup [url] [device/branch]
 
 #### Updating 
 
+Update the sysenv application
 ```bash
 $ sysenv update
 ```
