@@ -1,0 +1,25 @@
+#!/bin/bash -i
+
+ROOT="$(dirname ${BASH_SOURCE[0]})"
+source $ROOT/.profile
+cd $ROOT;
+
+while [ $# -gt 0 ]; do
+  arg=$1
+
+    if [ -f "$SYSENV/bin/$1" ]
+    then
+        . "$ROOT/bin/$1"
+        exit;
+    fi
+
+    case $arg in
+        shortlist)
+            echo $(find "$ROOT/bin" -maxdepth 1 -not -type d -printf "%f\n")
+        ;;
+        *)
+            syadm $*
+        ;;
+    esac
+  shift
+done

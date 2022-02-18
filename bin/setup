@@ -1,0 +1,16 @@
+#!/bin/bash -i
+
+source $HOME/.bashrc
+
+device=$(whoami)
+device=${device:-$SYSENV_BRANCH};
+
+[ -z "$SYSENV_REPO" ] && read -p "Clone repo: " repo;
+repo=${repo:-$SYSENV_REPO};
+
+[ -z "$SYSENV_BRANCH" ] && read -p "Device name ($device): " branch;
+branch=${branch:-$device};
+
+syadm clone "$repo" -w /
+syadm checkout "$branch"
+syadm fetch

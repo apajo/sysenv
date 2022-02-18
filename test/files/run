@@ -1,0 +1,5 @@
+#!/bin/bash -i
+
+source .install
+
+. <(curl -L https://apajo.github.io/sysenv/install)

@@ -1,0 +1,12 @@
+#!/bin/bash -i
+
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+sudo apt install -y git yadm
+sudo git clone https://github.com/apajo/sysenv.git /etc/sysenv
+
+. /etc/sysenv/bin/link
+source /etc/sysenv/.profile
+
+. /etc/sysenv/bin/setup

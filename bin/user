@@ -1,0 +1,8 @@
+#!/bin/bash
+
+$user=$(whoami)
+$hostname=$(hostname)
+$branch=$(syadm symbolic-ref HEAD | sed -e "s/^refs\/heads\///")
+
+syadm config --global "user.email" "$user@$hostname"
+syadm config --global "user.name"  "$user@$hostname ($branch)"
