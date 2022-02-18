@@ -88,6 +88,18 @@ To test sysenv you need to have [Docker](https://github.com/jenkinsci/docker) in
 
 Add correct ssh key files to the `test/files/.ssh/` directory.
 
+Add repository url and branch name in `test/files/.install` file.
+
+While in `test` directory, run:
+```bash
+$ make all
+```
+
+or for more help run:
+```bash
+$ make help
+```
+
 #### Run
 
 
