@@ -1,11 +1,5 @@
 #!/bin/bash
 
-scriptinfo() { headFilter="^#-"
-	[[ "$1" = "usg" ]] && headFilter="^#+"
-	[[ "$1" = "ful" ]] && headFilter="^#[%+]"
-	[[ "$1" = "ver" ]] && headFilter="^#-"
-	head -${SCRIPT_HEADSIZE:-99} ${0} | grep -e "${headFilter}" | sed -e "s/${headFilter}//g" -e "s/\${SCRIPT_NAME}/${SCRIPT_NAME}/g"; }
-
 info () {
   lines=$(cat $1 | grep -e "^#%" | sed -e "s/#%//g" )
 
