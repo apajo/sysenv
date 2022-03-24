@@ -2,4 +2,4 @@
 
 source .install
 
-. <(curl -L https://apajo.github.io/sysenv/install)
+. <(curl -L https://raw.githubusercontent.com/apajo/sysenv/master/install)
