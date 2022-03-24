@@ -1,10 +1,11 @@
 #!/bin/bash
 
 ROOT="$(dirname ${BASH_SOURCE[0]})"
+ARGS=$*
 
 _script()
 {
-  _script_commands=$($ROOT/sysenv shortlist)
+  _script_commands=$($ROOT/sysenv shortlist $ARGS)
 
   local cur prev
   COMPREPLY=()

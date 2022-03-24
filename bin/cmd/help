@@ -19,7 +19,7 @@ DESCRIPTION
 COMMANDS
 EOF
 
-for entry in `find ./bin/ -maxdepth 1 -not -type d`; do
+for entry in `find ./bin/cmd/ -maxdepth 1 -not -type d`; do
   info $entry
 done
 
