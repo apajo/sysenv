@@ -4,6 +4,8 @@ ROOT="$(dirname ${BASH_SOURCE[0]})"
 source $ROOT/.profile
 cd $ROOT;
 
+source ./bin/inc/common
+
 while [ $# -gt 0 ]; do
   arg=$1
 

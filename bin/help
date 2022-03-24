@@ -1,0 +1,32 @@
+#!/bin/bash
+
+scriptinfo() { headFilter="^#-"
+	[[ "$1" = "usg" ]] && headFilter="^#+"
+	[[ "$1" = "ful" ]] && headFilter="^#[%+]"
+	[[ "$1" = "ver" ]] && headFilter="^#-"
+	head -${SCRIPT_HEADSIZE:-99} ${0} | grep -e "${headFilter}" | sed -e "s/${headFilter}//g" -e "s/\${SCRIPT_NAME}/${SCRIPT_NAME}/g"; }
+
+info () {
+  lines=$(cat $1 | grep -e "^#%" | sed -e "s/#%//g" )
+
+  if [ "$lines" ]
+  then
+      echo "  " "$lines"
+  fi
+}
+
+cat << EOF
+SYNOPSIS
+  sysenv [command] ...
+
+DESCRIPTION
+  sysenv - manage your system configuration
+
+COMMANDS
+EOF
+
+for entry in `find ./bin/ -maxdepth 1 -not -type d`; do
+  info $entry
+done
+
+echo -e "\n"
