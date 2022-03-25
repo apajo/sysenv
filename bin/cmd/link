@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source /etc/sysenv/.profile
 ROOT="$(dirname ${BASH_SOURCE[0]})"
 
 awk 'NR == FNR {first[$0];next}; ! ($0 in first)' "/etc/bash.bashrc" "$ROOT/../../.template/.bashrc" >> "/etc/bash.bashrc"
