@@ -18,5 +18,5 @@ repo=${repo:-$SYSENV_REPO};
 branch=${branch:-$SYSENV_BRANCH};
 
 syadm clone "$repo" -w /
-syadm checkout "$branch"
+syadm checkout "$branch" || :;
 syadm fetch
