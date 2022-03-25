@@ -7,8 +7,9 @@ repo=${repo:-$SYSENV_REPO};
 
 branch=$3
 device=$(whoami)
-branch=${branch:-$device};
 branch=${branch:-$SYSENV_BRANCH};
+branch=${branch:-$device};
+
 
 [ -z "$SYSENV_REPO" ] && read -p "Device repository ($repo): " repo;
 repo=${repo:-$SYSENV_REPO};
