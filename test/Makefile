@@ -25,7 +25,6 @@ build:		## Initial setup for the container
 	docker build -t sysenv .
 
 run:		## Run container
-	-docker rm sysenv
 	docker run -it -d --name sysenv sysenv
 
 log:		## Run container

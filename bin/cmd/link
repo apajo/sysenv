@@ -2,7 +2,7 @@
 
 ROOT="$(dirname ${BASH_SOURCE[0]})"
 
-awk 'NR == FNR {first[$0];next}; ! ($0 in first)' "/etc/bash.bashrc" "$ROOT/../.template/.bashrc" >> "/etc/bash.bashrc"
-awk 'NR == FNR {first[$0];next}; ! ($0 in first)' "$HOME/.bashrc" "$ROOT/../.template/.bashrc" >> "$HOME/.bashrc"
-awk 'NR == FNR {first[$0];next}; ! ($0 in first)' "$HOME/.profile" "$ROOT/../.template/.bashrc" >> "$HOME/.profile"
+awk 'NR == FNR {first[$0];next}; ! ($0 in first)' "/etc/bash.bashrc" "$ROOT/../../.template/.bashrc" >> "/etc/bash.bashrc"
+awk 'NR == FNR {first[$0];next}; ! ($0 in first)' "$HOME/.bashrc" "$ROOT/../../.template/.bashrc" >> "$HOME/.bashrc"
+awk 'NR == FNR {first[$0];next}; ! ($0 in first)' "$HOME/.profile" "$ROOT/../../.template/.bashrc" >> "$HOME/.profile"
 source "$HOME/.profile"
