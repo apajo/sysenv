@@ -1,2 +1,2 @@
-SYSENV_REPO=""
-SYSENV_BRANCH=""
+SYSENV_REPO="git@bitbucket.org:andrespajo/backup_test.git"
+SYSENV_BRANCH="master"

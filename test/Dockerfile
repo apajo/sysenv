@@ -20,4 +20,4 @@ RUN sudo chown -R apajo:apajo /home/apajo/*
 USER apajo
 WORKDIR /home/apajo
 CMD ["/bin/bash"]
-CMD ["./run"]
+#CMD ["./run"]

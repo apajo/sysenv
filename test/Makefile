@@ -17,6 +17,7 @@ help:           ## Show this help.
 
 all:		## Initial setup for the container
 	make build
+	-make kill
 	make run
 	make shell
 
@@ -24,8 +25,11 @@ build:		## Initial setup for the container
 	docker build -t sysenv .
 
 run:		## Run container
-	make kill
-	docker run -it --rm -d --name sysenv sysenv
+	-docker rm sysenv
+	docker run -it -d --name sysenv sysenv
+
+log:		## Run container
+	docker logs sysenv
 
 kill:		## Kill containers
 	-docker kill sysenv

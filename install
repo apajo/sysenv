@@ -6,7 +6,7 @@ NC='\033[0m' # No Color
 sudo apt install -y git yadm
 sudo git clone https://github.com/apajo/sysenv.git /etc/sysenv
 
-. /etc/sysenv/bin/link
+. /etc/sysenv/bin/cmd/link
 source /etc/sysenv/.profile
 
-. /etc/sysenv/bin/setup
+. /etc/sysenv/bin/cmd/setup
