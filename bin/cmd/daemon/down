@@ -1,0 +1,4 @@
+#!/bin/bash
+
+systemctl stop sysenv
+systemctl disable sysenv

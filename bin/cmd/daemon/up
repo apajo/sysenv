@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo cp $SYSENV/service/sysenv.service /etc/systemd/system/
+systemctl enable sysenv
+systemctl restart sysenv

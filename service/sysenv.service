@@ -1,0 +1,10 @@
+[Unit]
+Description=Auto commmit/fetch remote sysenv files
+After=network.target
+
+[Service]
+ExecStart=/etc/sysenv/sysenv sync
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
