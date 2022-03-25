@@ -5,6 +5,7 @@ source $ROOT/.profile
 cd $ROOT;
 
 source ./bin/inc/common
+source ./bin/inc/log
 
 while [ $# -gt 0 ]; do
   arg=$1

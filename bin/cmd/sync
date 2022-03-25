@@ -1,0 +1,7 @@
+#!/bin/bash
+
+syadm add .
+syadm commit
+
+sysenv load
+sysenv save
