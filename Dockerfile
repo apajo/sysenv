@@ -14,11 +14,11 @@ RUN passwd -d apajo
 
 COPY ./test/files /root
 COPY ./test/files /home/apajo
-COPY ./src /etc/sysenv/src
+COPY ./ /etc/sysenv
 
 RUN sudo chown -R apajo:apajo /home/apajo/*
 
 USER root
 WORKDIR /home/apajo
 CMD ["/bin/bash"]
-CMD ["./run"]
+#CMD ["./run"]

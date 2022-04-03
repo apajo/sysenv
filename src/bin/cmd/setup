@@ -3,16 +3,4 @@
 source $HOME/.bashrc
 source /etc/sysenv/src/bin/inc/config;
 
-sysenv_save () {
-  sysenv_config_save "SYSENV_HOME"    ${params[0]};
-  sysenv_config_save "SYSENV_REPO"    ${params[1]};
-  sysenv_config_save "SYSENV_BRANCH"  ${params[2]};
-}
-
-sysenv_setup () {
-  syadm clone "$SYSENV_REPO" -w "$SYSENV_HOME"
-  syadm checkout "$SYSENV_BRANCH" || :;
-  syadm fetch
-}
-
 route_go "setup";

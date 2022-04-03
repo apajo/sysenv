@@ -26,9 +26,11 @@ sysenv_save () {
 }
 
 sysenv_setup () {
-  syadm clone "$SYSENV_REPO" -w "$SYSENV_HOME"
+  syadm clone "$SYSENV_REPO" -w "$SYSENV_HOME";exit;
   syadm checkout "$SYSENV_BRANCH" || :;
   syadm fetch
+
+  exit;
 }
 
 returncode=0
@@ -56,7 +58,7 @@ do
 	    params=($returntext)
 	    sysenv_save $params;
       sysenv_setup
-
+exit;
       route_back
 		;;
 
