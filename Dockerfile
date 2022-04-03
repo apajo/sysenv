@@ -14,7 +14,7 @@ RUN passwd -d apajo
 
 COPY ./test/files /root
 COPY ./test/files /home/apajo
-COPY ./src /etc/sysenv
+COPY ./src /etc/sysenv/src
 
 RUN sudo chown -R apajo:apajo /home/apajo/*
 
