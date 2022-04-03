@@ -4,7 +4,7 @@ app_name="SYSENV"
 app_version="1.0"
 
 function finish {
-  #clear;
+  clear;
   echo "";
 }
 trap finish EXIT
@@ -65,9 +65,17 @@ run () {
 }
 
 dialog_alert () {
-  $DIALOG --aspect 6 --cr-wrap \
-          --title "MESSAGE BOX aspect=6 with --cr-wrap" \
+  $DIALOG --aspect 0 --cr-wrap \
+          --title "Attention!" \
           --backtitle "$app_name $app_version" \
-          --msgbox "$1 \n" 0 0
+          --msgbox "$1 \n" 8 20
+  test $? = "$DIALOG_ESC" && exit
+}
+
+dialog_error () {
+  $DIALOG --aspect 0 --cr-wrap \
+          --title "Attention!" \
+          --backtitle "$app_name $app_version" \
+          --msgbox "$1 \n" 8 20
   test $? = "$DIALOG_ESC" && exit
 }
