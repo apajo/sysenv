@@ -35,14 +35,12 @@ do
         --backtitle "$app_name $app_version" \
         --form "Setup your system repository and default branch etc" \
           10 60 0 \
-            "Home directory:"         1 1	"$home"     1 20 40 50 \
+            "Root directory:"         1 1	"$home"     1 20 40 50 \
             "Repository:"         2 1	"$repo"     2 20 40 50 \
             "User/device:"      3 1	"$branch"   3 20 40 20 \
           2>&1 1>&3`
     returncode=$?
   exec 3>&-
-
-show=`echo "$returntext" | sed -e 's/^/	/'`
 
 	case $returncode in
 	$DIALOG_CANCEL)
@@ -51,8 +49,7 @@ show=`echo "$returntext" | sed -e 's/^/	/'`
 	$DIALOG_OK)
 	    IFS=$'\n'
 	    params=($returntext)
-	    #sysenv_save $params;
-	    dialog_error "tere"
+	    sysenv_save $params;
 
       route_back
 		;;

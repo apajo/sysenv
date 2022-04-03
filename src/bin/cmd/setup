@@ -3,31 +3,8 @@
 source $HOME/.bashrc
 source /etc/sysenv/src/bin/inc/config;
 
-dialog_ok () {
-  echo "PARAMS: $1" ;
-  exit;
-}
-
-
 route_go "setup";
-#
-#exit;
-#
-#repo=$2;
-#repo=${repo:-$SYSENV_REPO};
-#
-#branch=$3
-#device=$(whoami)
-#branch=${branch:-$SYSENV_BRANCH};
-#branch=${branch:-$device};
-#
-#
-#[ -z "$SYSENV_REPO" ] && read -p "Device repository ($repo): " repo;
-#repo=${repo:-$SYSENV_REPO};
-#
-#[ -z "$SYSENV_BRANCH" ] && read -p "Device name ($branch): " branch;
-#branch=${branch:-$SYSENV_BRANCH};
-#
-#syadm clone "$repo" -w /
-#syadm checkout "$branch" || :;
-#syadm fetch
+
+syadm clone "$SYSENV_REPO" -w "$SYSENV_HOME"
+syadm checkout "$SYSENV_BRANCH" || :;
+syadm fetch
