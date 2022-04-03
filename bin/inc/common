@@ -4,7 +4,7 @@ app_name="SYSENV"
 app_version="1.0"
 
 function finish {
-  clear;
+  #clear;
 }
 trap finish EXIT
 
