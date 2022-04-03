@@ -1,22 +1,33 @@
 #!/bin/bash -i
 
 source $HOME/.bashrc
+source $SYSENV/bin/inc/config;
 
-repo=$2;
-repo=${repo:-$SYSENV_REPO};
-
-branch=$3
-device=$(whoami)
-branch=${branch:-$SYSENV_BRANCH};
-branch=${branch:-$device};
+dialog_ok () {
+  echo "PARAMS: $1" ;
+  exit;
+}
 
 
-[ -z "$SYSENV_REPO" ] && read -p "Device repository ($repo): " repo;
-repo=${repo:-$SYSENV_REPO};
-
-[ -z "$SYSENV_BRANCH" ] && read -p "Device name ($branch): " branch;
-branch=${branch:-$SYSENV_BRANCH};
-
-syadm clone "$repo" -w /
-syadm checkout "$branch" || :;
-syadm fetch
+route_go "setup";
+#
+#exit;
+#
+#repo=$2;
+#repo=${repo:-$SYSENV_REPO};
+#
+#branch=$3
+#device=$(whoami)
+#branch=${branch:-$SYSENV_BRANCH};
+#branch=${branch:-$device};
+#
+#
+#[ -z "$SYSENV_REPO" ] && read -p "Device repository ($repo): " repo;
+#repo=${repo:-$SYSENV_REPO};
+#
+#[ -z "$SYSENV_BRANCH" ] && read -p "Device name ($branch): " branch;
+#branch=${branch:-$SYSENV_BRANCH};
+#
+#syadm clone "$repo" -w /
+#syadm checkout "$branch" || :;
+#syadm fetch

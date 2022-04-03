@@ -1,3 +1,5 @@
 .idea
 repo.git
 test/files/
+.env
+.*

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+configfile=$HOME"/.config/.sysenv";
+
+
+source $SYSENV/.env;
+if [ -f "$configfile" ] ; then
+    source $configfile;
+
+else
+  mkdir -p $(dirname $configfile);
+  touch $configfile;
+fi
+
+sysenv_config_load () {
+  source $HOME"/.config/.sysenv";
+}
+
+sysenv_config_save () {
+  key=$1;
+  value=$2;
+
+  if grep -Fxq "$key" $configfile
+  then
+    sed -E 's/^('$key'[[:blank:]]*=[[:blank:]]*).*/\'$value'/' $configfile
+  else
+      echo -e  "$key"='"'$value'"' >> $configfile;
+  fi
+
+  sysenv_config_load;
+}

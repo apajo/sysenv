@@ -2,6 +2,10 @@
 
 SCRIPT_NAME="sysenv";
 
+source $SYSENV/bin/dialog/common/setup.sh
+source $SYSENV/.profile
+source $SYSENV/bin/inc/config;
+
 # ----------------------------------
 # Colors
 # --------------------- sz-------------
@@ -52,3 +56,10 @@ run () {
   # Your cleanup code here
     return;
 }
+
+
+function finish {
+  #clear;
+  echo "";
+}
+trap finish EXIT

@@ -1,10 +1,10 @@
 #!/bin/bash -i
 
-RED='\033[0;31m'
-NC='\033[0m' # No Color
+INSTALL_PATH="/usr/local/bin/sysenv"
 
-sudo apt install -y git yadm
+sudo apt install -y git yadm dialog
 sudo git clone https://github.com/apajo/sysenv.git /etc/sysenv
+sudo cp /etc/sysenv/sysenv /bin/sysenv
 
 . /etc/sysenv/bin/cmd/link
 source /etc/sysenv/.profile

@@ -1,16 +1,20 @@
 #!/bin/bash -i
 
-ROOT="$(dirname ${BASH_SOURCE[0]})"
-source $ROOT/.profile
-cd $ROOT;
-
-source ./bin/inc/common
+source /etc/sysenv/.profile;
 
 while [ $# -gt 0 ]; do
   arg=$1
+echo "$arg"; exit;
+    case $arg in
+        "service")
+            . "$ROOT/bin/cmd/service"
+            exit;
+        ;;
+    esac
 
     if [ -f "$SYSENV/bin/cmd/$1" ]
     then
+        source $SYSENV/bin/inc/common
         . "$ROOT/bin/cmd/$1"
         exit;
     fi
@@ -19,8 +23,8 @@ while [ $# -gt 0 ]; do
         shortlist)
             echo $(find "$ROOT/bin/cmd" -maxdepth 1 -printf "%f\n")
         ;;
-        *)
-            syadm $*
+         *)
+            route_go "menu";
         ;;
     esac
   shift

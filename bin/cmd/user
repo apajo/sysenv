@@ -5,4 +5,4 @@ $hostname=$(hostname)
 $branch=$(syadm symbolic-ref HEAD | sed -e "s/^refs\/heads\///")
 
 syadm config --global "user.email" "$user@$hostname"
-syadm config --global "user.name"  "$user@$hostname ($branch)"
+syadm config --global "user.name"  "$user@sysenv-com ($branch)"

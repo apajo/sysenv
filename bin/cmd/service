@@ -1,0 +1,27 @@
+#!/bin/bash -i
+
+export DISPLAY=:0
+
+# Check and keep mercure hub running
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+# Absolute path to this script. /home/user/bin/foo.sh
+SCRIPT=$(readlink -f $0)
+# Absolute path this script is in. /home/user/bin
+SCRIPTPATH=`dirname $SCRIPT`
+
+path="$SYSENV/service"
+process="sysenv_service"
+run="$path/sysenv_service"
+
+
+if pgrep $process
+then
+    printf "Process '%s' is running.\n" "$process"
+    exit
+else
+    printf "Starting process '%s' with command '%s'.\n" "$process" "$run"
+
+    nohup "$run" &
+fi
+exit
