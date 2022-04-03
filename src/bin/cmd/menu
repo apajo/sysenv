@@ -1,6 +1,6 @@
 #!/bin/bash -i
 
 source $HOME/.bashrc
-source $SYSENV/bin/inc/config;
+source /etc/sysenv/src/bin/inc/config;
 
 route_go "menu";

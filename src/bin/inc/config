@@ -3,7 +3,7 @@
 configfile="$HOME/.config/.sysenv";
 
 
-source $SYSENV/.env;
+source /etc/sysenv/src/.env;
 if [ -f "$configfile" ] ; then
     source $configfile;
 else

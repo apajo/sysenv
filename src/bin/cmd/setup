@@ -1,7 +1,7 @@
 #!/bin/bash -i
 
 source $HOME/.bashrc
-source $SYSENV/bin/inc/config;
+source /etc/sysenv/src/bin/inc/config;
 
 dialog_ok () {
   echo "PARAMS: $1" ;

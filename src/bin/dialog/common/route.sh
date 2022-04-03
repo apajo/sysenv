@@ -44,5 +44,5 @@ route_exec () {
   current=${ROUTE[-1]}
 
   echo "Route: [$current]";
-  . "$SYSENV/bin/dialog/$current".sh
+  . "/etc/sysenv/src/bin/dialog/$current".sh
 }

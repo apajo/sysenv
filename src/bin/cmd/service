@@ -10,7 +10,7 @@ SCRIPT=$(readlink -f $0)
 # Absolute path this script is in. /home/user/bin
 SCRIPTPATH=`dirname $SCRIPT`
 
-path="$SYSENV/service"
+path="/etc/sysenv/src/service"
 process="sysenv_service"
 run="$path/sysenv_service"
 

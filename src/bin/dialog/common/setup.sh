@@ -1,3 +1,3 @@
 #!/bin/bash
 
-source $SYSENV/bin/dialog/common/common.sh
+source /etc/sysenv/src/bin/dialog/common/common.sh

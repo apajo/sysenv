@@ -5,7 +5,7 @@ ARGS=$*
 
 _script()
 {
-  _script_commands=$($ROOT/sysenv shortlist)
+  _script_commands=$(/etv/sysenv/src/sysenv shortlist)
 
   local cur prev
   COMPREPLY=()
