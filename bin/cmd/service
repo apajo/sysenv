@@ -22,6 +22,6 @@ then
 else
     printf "Starting process '%s' with command '%s'.\n" "$process" "$run"
 
-    nohup "$run" &
+    $run &
 fi
 exit
