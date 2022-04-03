@@ -30,9 +30,6 @@ while [ $# -gt 0 ]; do
     fi
 
     case $arg in
-        "")
-            run "menu";
-        ;;
         shortlist)
             echo $(find "$ROOT/bin/cmd" -maxdepth 1 -printf "%f\n")
         ;;
