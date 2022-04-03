@@ -6,11 +6,11 @@ if [ ! -d "/etc/sysenv" ] ; then
   sudo git clone https://github.com/apajo/sysenv.git /etc/sysenv
 fi
 
-sudo cp /etc/sysenv/sysenv /bin/sysenv
+sudo cp /etc/sysenv/src/sysenv /bin/sysenv
 
-source /etc/sysenv/bin/inc/common;
+source /etc/sysenv/src/bin/inc/common;
 
-. /etc/sysenv/bin/cmd/link
-source /etc/sysenv/.profile
+. /etc/sysenv/src/bin/cmd/link
+source /etc/sysenv/src/.profile
 
-. /etc/sysenv/bin/cmd/setup
+. /etc/sysenv/src/bin/cmd/setup

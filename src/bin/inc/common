@@ -9,9 +9,9 @@ function finish {
 }
 trap finish EXIT
 
-source /etc/sysenv/bin/dialog/common/setup.sh
-source /etc/sysenv/.profile
-source /etc/sysenv/bin/inc/config;
+source /etc/sysenv/src/bin/dialog/common/setup.sh
+source /etc/sysenv/src/.profile
+source /etc/sysenv/src/bin/inc/config;
 
 # ----------------------------------
 # Colors

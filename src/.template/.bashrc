@@ -1,1 +1,1 @@
-source /etc/sysenv/.profile
+source /etc/sysenv/src/.profile

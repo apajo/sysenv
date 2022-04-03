@@ -1,9 +1,9 @@
 #!/bin/bash -i
 
-source /etc/sysenv/.profile;
+source /etc/sysenv/src/.profile;
 
 run () { echo "RUN:$1"
-  source /etc/sysenv/bin/inc/common;
+  source /etc/sysenv/src/bin/inc/common;
   . "$SYSENV/bin/cmd/$1"
 
   exit;
