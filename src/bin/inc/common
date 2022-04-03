@@ -5,7 +5,7 @@ app_version="1.0"
 
 function finish {
   #clear;
-  ;
+  echo "";
 }
 trap finish EXIT
 
