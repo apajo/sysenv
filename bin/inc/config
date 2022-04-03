@@ -1,19 +1,18 @@
 #!/bin/bash
 
-configfile=$HOME"/.config/.sysenv";
+configfile="$HOME/.config/.sysenv";
 
 
 source $SYSENV/.env;
 if [ -f "$configfile" ] ; then
     source $configfile;
-
 else
   mkdir -p $(dirname $configfile);
   touch $configfile;
 fi
 
 sysenv_config_load () {
-  source $HOME"/.config/.sysenv";
+  source "$HOME/.config/.sysenv";
 }
 
 sysenv_config_save () {

@@ -2,6 +2,18 @@
 
 source /etc/sysenv/.profile;
 
+run () { echo "RUN:$1"
+  source /etc/sysenv/bin/inc/common;
+  . "$SYSENV/bin/cmd/$1"
+
+  exit;
+}
+
+if [ "$1" == "" ]
+then
+  set -- "menu";
+fi
+
 while [ $# -gt 0 ]; do
   arg=$1
 
@@ -12,19 +24,20 @@ while [ $# -gt 0 ]; do
         ;;
     esac
 
-    if [ -f "$SYSENV/bin/cmd/$1" ]
+    if [ -f "$SYSENV/bin/cmd/$arg" ]
     then
-        source $SYSENV/bin/inc/common
-        . "$ROOT/bin/cmd/$1"
-        exit;
+        run "$arg";
     fi
 
     case $arg in
+        "")
+            run "menu";
+        ;;
         shortlist)
             echo $(find "$ROOT/bin/cmd" -maxdepth 1 -printf "%f\n")
         ;;
          *)
-            route_go "menu";
+            syadm $*;
         ;;
     esac
   shift

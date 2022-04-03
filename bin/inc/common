@@ -1,10 +1,16 @@
 #!/bin/bash
 
-SCRIPT_NAME="sysenv";
+app_name="SYSENV"
+app_version="1.0"
 
-source $SYSENV/bin/dialog/common/setup.sh
-source $SYSENV/.profile
-source $SYSENV/bin/inc/config;
+function finish {
+  clear;
+}
+trap finish EXIT
+
+source /etc/sysenv/bin/dialog/common/setup.sh
+source /etc/sysenv/.profile
+source /etc/sysenv/bin/inc/config;
 
 # ----------------------------------
 # Colors
@@ -56,10 +62,3 @@ run () {
   # Your cleanup code here
     return;
 }
-
-
-function finish {
-  #clear;
-  echo "";
-}
-trap finish EXIT
