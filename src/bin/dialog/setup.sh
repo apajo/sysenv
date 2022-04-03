@@ -3,29 +3,28 @@
 envfile=$HOME"/.config/.sysenv";
 
 home=$1;
-home=${repo:-$SYSENV_HOME};
+home=${home:-$HOME};
+home=${home:-$SYSENV_HOME};
 
 repo=$2;
 repo=${repo:-$SYSENV_REPO};
 
-userrepo=$3;
-userrepo=${userrepo:-$SYSENV_DEFAULT_USER_REPO};
-
-branch=$2
-device=$(whoami)
+branch=$3
+user=$(whoami)
 
 if [ $(whoami) == "root" ]; then
-  device=$(hostname)
+  user=$(hostname)
 fi
 
-device=${branch:-$device};
-device=${device:-$SYSENV_BRANCH};
+branch=${branch:-$user};
+branch=${branch:-$SYSENV_BRANCH};
 
 sysenv_save () {
   sysenv_config_save "SYSENV_HOME"    ${params[0]};
   sysenv_config_save "SYSENV_REPO"    ${params[1]};
   sysenv_config_save "SYSENV_BRANCH"  ${params[2]};
 }
+
 
 returncode=0
 while test $returncode != 1 && test $returncode != 250
@@ -38,7 +37,7 @@ do
           10 60 0 \
             "Home directory:"         1 1	"$home"     1 20 40 50 \
             "Repository:"         2 1	"$repo"     2 20 40 50 \
-            "User/device:"      3 1	"$device"   3 20 40 20 \
+            "User/device:"      3 1	"$branch"   3 20 40 20 \
           2>&1 1>&3`
     returncode=$?
   exec 3>&-
@@ -52,7 +51,11 @@ show=`echo "$returntext" | sed -e 's/^/	/'`
 	$DIALOG_OK)
 	    IFS=$'\n'
 	    params=($returntext)
-	    sysenv_save $params;
+	    #sysenv_save $params;
+	    dialog_alert "tere"
+	    sleep 5
+	    exit;
+
 
       route_back
 		;;

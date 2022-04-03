@@ -63,3 +63,9 @@ run () {
   # Your cleanup code here
     return;
 }
+
+dialog_alert () {
+  $DIALOG --aspect 6 --cr-wrap --title "MESSAGE BOX aspect=6 with --cr-wrap" \
+          --msgbox "$1 \n" 0 0
+  test $? = "$DIALOG_ESC" && exit
+}
