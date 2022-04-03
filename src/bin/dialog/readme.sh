@@ -1,6 +1,6 @@
 #!/bin/bash
 
-filepath=$(realpath "/etc/sysenv/src/README.md")
+filepath=$(realpath "/etc/sysenv/README.md")
 
 returncode=0
 while test $returncode != 1 && test $returncode != 250

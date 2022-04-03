@@ -19,13 +19,6 @@ fi
 branch=${branch:-$user};
 branch=${branch:-$SYSENV_BRANCH};
 
-sysenv_save () {
-  sysenv_config_save "SYSENV_HOME"    ${params[0]};
-  sysenv_config_save "SYSENV_REPO"    ${params[1]};
-  sysenv_config_save "SYSENV_BRANCH"  ${params[2]};
-}
-
-
 returncode=0
 while test $returncode != 1 && test $returncode != 250
 do
@@ -50,6 +43,7 @@ do
 	    IFS=$'\n'
 	    params=($returntext)
 	    sysenv_save $params;
+      sysenv_setup
 
       route_back
 		;;
