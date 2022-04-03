@@ -1,7 +1,11 @@
 #!/bin/bash -i
 
 sudo apt install -y git yadm dialog
-sudo git clone https://github.com/apajo/sysenv.git /etc/sysenv
+
+if [ ! -d "/etc/sysenv" ] ; then
+  sudo git clone https://github.com/apajo/sysenv.git /etc/sysenv
+fi
+
 sudo cp /etc/sysenv/sysenv /bin/sysenv
 
 source /etc/sysenv/bin/inc/common;

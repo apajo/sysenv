@@ -1,0 +1,9 @@
+#!/bin/bash -i
+
+source .install
+
+rm -rf /etc/sysenv
+ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts
+
+. <(curl -L https://raw.githubusercontent.com/apajo/sysenv/master/install)
+. local

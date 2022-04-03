@@ -12,8 +12,9 @@ RUN useradd -ms /bin/bash apajo
 RUN usermod -aG sudo apajo
 RUN passwd -d apajo
 
-COPY ./files /root
-COPY ./files /home/apajo
+COPY ./test/files /root
+COPY ./test/files /home/apajo
+COPY ./src /etc/sysenv
 
 RUN sudo chown -R apajo:apajo /home/apajo/*
 
