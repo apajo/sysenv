@@ -65,7 +65,9 @@ run () {
 }
 
 dialog_alert () {
-  $DIALOG --aspect 6 --cr-wrap --title "MESSAGE BOX aspect=6 with --cr-wrap" \
+  $DIALOG --aspect 6 --cr-wrap \
+          --title "MESSAGE BOX aspect=6 with --cr-wrap" \
+          --backtitle "$app_name $app_version" \
           --msgbox "$1 \n" 0 0
   test $? = "$DIALOG_ESC" && exit
 }

@@ -53,9 +53,6 @@ show=`echo "$returntext" | sed -e 's/^/	/'`
 	    params=($returntext)
 	    #sysenv_save $params;
 	    dialog_alert "tere"
-	    sleep 5
-	    exit;
-
 
       route_back
 		;;
