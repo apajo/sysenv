@@ -16,7 +16,7 @@ At it's core, it adds some scripts for easier usage of the [yadm](https://github
 To install run the command:
 
 ```shell
-. <(curl -L https://raw.githubusercontent.com/apajo/sysenv/master/install)
+. <(curl -L https://raw.githubusercontent.com/apajo/sysenv/master/src/install)
 ```
 
 > you will be prompted for your __repository url__ and __device name__ (or branch in git)
