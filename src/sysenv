@@ -2,7 +2,7 @@
 
 source /etc/sysenv/src/.profile;
 
-run () { echo "RUN:$1"
+run () {
   source /etc/sysenv/src/bin/inc/common;
   . "/etc/sysenv/src/bin/cmd/$1"
 
