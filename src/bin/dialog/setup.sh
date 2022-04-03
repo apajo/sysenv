@@ -52,7 +52,7 @@ show=`echo "$returntext" | sed -e 's/^/	/'`
 	    IFS=$'\n'
 	    params=($returntext)
 	    #sysenv_save $params;
-	    dialog_alert "tere"
+	    dialog_error "tere"
 
       route_back
 		;;
