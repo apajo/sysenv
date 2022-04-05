@@ -21,7 +21,7 @@ do
         --form "Change yuor sysenv options" \
           10 60 0 \
             "Autos push delay (secs):"         1 1	"$autopush"     1 25 40 3 \
-            "Autos pull delay (secs):"         1 1	"$autopull"     1 25 40 3 \
+            "Autos pull delay (secs):"         2 1	"$autopull"     2 25 40 3 \
           2>&1 1>&3`
     returncode=$?
   exec 3>&-
