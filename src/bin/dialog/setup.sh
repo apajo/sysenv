@@ -44,7 +44,7 @@ do
           10 60 0 \
             "Root directory:"         1 1	"$home"     1 20 40 50 \
             "Repository:"         2 1	"$repo"     2 20 40 50 \
-            "User/device:"      3 1	"$branch"   3 20 40 20 \
+            "Branch (user):"      3 1	"$branch"   3 20 40 20 \
           2>&1 1>&3`
     returncode=$?
   exec 3>&-

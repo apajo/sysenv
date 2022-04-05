@@ -1,0 +1,26 @@
+#!/bin/bash
+
+logfile="/var/log/sysenv";
+servicelogfile="/var/log/sysenv.service";
+
+if [ ! -f "$logfile" ] ; then
+  sudo touch $logfile;
+  sudo chown $(whoami):$(whoami) "$logfile"
+fi
+
+if [ ! -f "$servicelogfile" ] ; then
+  sudo touch $servicelogfile;
+  sudo chown $(whoami):$(whoami) "$servicelogfile"
+fi
+
+#exec 2>"$logfile"
+#exec 3>&1 4>&2
+#trap 'exec 2>&4 1>&3' 0 1 2 3
+#exec 1>"$logfile" 2>&1
+
+exec 2>>"$logfile"
+log () {
+ echo "$@" >> "$logfile"
+}
+
+#log "hello world";

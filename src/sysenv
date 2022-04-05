@@ -4,7 +4,7 @@ source /etc/sysenv/src/.profile;
 
 run () {
   source /etc/sysenv/src/bin/inc/common;
-  . "/etc/sysenv/src/bin/cmd/$1"
+  . "/etc/sysenv/src/bin/cmd/$1" 2>>log
 
   exit;
 }

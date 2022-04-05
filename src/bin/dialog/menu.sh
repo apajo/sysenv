@@ -14,6 +14,7 @@ do
   exec 3>&1
     returntext=`$DIALOG \
       --backtitle "$app_name $app_version" \
+      --keep-tite \
       --title "Choose your action" \
       --default-item Dialog "$@" \
       --menu "$(sysenv_info)" 0 0 5 \
