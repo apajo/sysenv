@@ -1,11 +1,14 @@
 #!/bin/bash
 
-autosync=$1;
-autosync=${repo:-$SYSENV_AUTOSYNC_DELAY};
+autopush=$1;
+autopush=${repo:-$SYSENV_PUSH_DELAY};
 
+autopull=$2;
+autopull=${repo:-$SYSENV_PULL_DELAY};
 
 sysenv_save () {
-  sysenv_config_save "SYSENV_AUTOSYNC_DELAY"    ${params[0]};
+  sysenv_config_save "SYSENV_PUSH_DELAY"    ${params[0]};
+  sysenv_config_save "SYSENV_PULL_DELAY"    ${params[0]};
 }
 
 returncode=0
@@ -17,7 +20,8 @@ do
         --backtitle "$app_name $app_version" \
         --form "Change yuor sysenv options" \
           10 60 0 \
-            "Autos sync delay (secs):"         1 1	"$autosync"     1 25 40 3 \
+            "Autos push delay (secs):"         1 1	"$autopush"     1 25 40 3 \
+            "Autos pull delay (secs):"         1 1	"$autopull"     1 25 40 3 \
           2>&1 1>&3`
     returncode=$?
   exec 3>&-
