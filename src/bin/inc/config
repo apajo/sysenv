@@ -21,10 +21,8 @@ sysenv_config_save () {
 
   if grep -Fq "$key" "$configfile"
   then
-    log "Exists: $key"
     sed -E 's/^('$key'[[:blank:]]*=[[:blank:]]*).*/\'$value'/' $configfile
   else
-    log "Exists: $key"
           echo -e  "$key"='"'$value'"' >> $configfile;
   fi
 

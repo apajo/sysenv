@@ -14,6 +14,7 @@ user=$(whoami)
 
 if [ $(whoami) == "root" ]; then
   user=$(hostname)
+  home="/";
 fi
 
 branch=${branch:-$user};
