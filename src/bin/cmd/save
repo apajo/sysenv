@@ -4,8 +4,11 @@
 #================================================================
 #%  save    - save all changes in staged files
 
+savetimestamp="$HOME/.config/sysenv/.save";
 branch=$(git symbolic-ref HEAD | sed -e "s/^refs\/heads\///")
 
-syadm commit -m "changes from  @ $(date '+%x %X')"
+yadm commit -m "changes from  @ $(date '+%x %X')"
 # syadm push --set-upstream origin master
-syadm push -u origin "$branch"
+yadm push -u origin "$branch"
+
+touch $savetimestamp;

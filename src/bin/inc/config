@@ -1,6 +1,6 @@
 #!/bin/bash
 
-configfile="$HOME/.config/.sysenv";
+configfile="$HOME/.config/sysenv/config";
 
 
 source /etc/sysenv/src/.env;
@@ -12,7 +12,7 @@ else
 fi
 
 sysenv_config_load () {
-  source "$HOME/.config/.sysenv";
+  source "$HOME/.config/sysenv/config";
 }
 
 sysenv_config_save () {

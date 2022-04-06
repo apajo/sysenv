@@ -4,4 +4,8 @@
 #================================================================
 #%  load    - Load all changes in remote
 
-syadm fetch
+loadtimestamp="$HOME/.config/sysenv/.load";
+
+yadm fetch
+
+touch $loadtimestamp;

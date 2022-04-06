@@ -1,6 +1,6 @@
 #!/bin/bash
 
-envfile=$HOME"/.config/.sysenv";
+envfile=$HOME"/.config/sysenv/config";
 
 home=$1;
 home=${home:-$HOME};
@@ -27,7 +27,7 @@ sysenv_save () {
 }
 
 sysenv_setup () {
-  syadm clone "$SYSENV_REPO" -w "$SYSENV_HOME";exit;
+  syadm clone "$SYSENV_REPO" -w "$SYSENV_HOME";
   syadm checkout "$SYSENV_BRANCH" || :;
   syadm fetch
 
