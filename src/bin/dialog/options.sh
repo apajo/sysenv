@@ -8,7 +8,7 @@ autopull=${repo:-$SYSENV_PULL_DELAY};
 
 sysenv_save () {
   sysenv_config_save "SYSENV_PUSH_DELAY"    ${params[0]};
-  sysenv_config_save "SYSENV_PULL_DELAY"    ${params[0]};
+  sysenv_config_save "SYSENV_PULL_DELAY"    ${params[1]};
 }
 
 returncode=0
@@ -25,8 +25,6 @@ do
           2>&1 1>&3`
     returncode=$?
   exec 3>&-
-
-show=`echo "$returntext" | sed -e 's/^/	/'`
 
 	case $returncode in
 	$DIALOG_CANCEL)

@@ -1,9 +1,88 @@
 #!/bin/bash -i
 
+logfile="/var/log/sysenv.service";
+if [ ! -f $logfile ]; then
+  touch $logfile;
+fi
+
+tail -c 100M "$logfile" > "$logfile"
+
 exec 3>&1 4>&2
 trap 'exec 2>&4 1>&3' 0 1 2 3
-exec 1>/var/log/sysenv 2>&1
+exec 1>$logfile 2>&1
 
-echo "SYSENV SERVICE... START..."
-sleep 30
-echo "SYSENV SERVICE... END..."
+log () {
+  echo "[$(date "+%x %X")] $1";
+}
+
+get_users () {
+  echo "root" $(users);
+}
+
+test_user () {
+  user=$1;
+  home=$(getent passwd $1 | cut -f6 -d:);
+
+
+  if [ -f "$home/.config/sysenv/config" ]; then
+    source "$home/.config/sysenv/config";
+
+    log "found $user@$home";
+
+    if [ -f "$home/.config/sysenv/.load" ]; then
+      if [ $SYSENV_PULL_DELAY ]; then
+        pull_user $user;
+      fi
+    else
+      touch "$home/.config/sysenv/.load";
+    fi
+
+    if [ -f "$home/.config/sysenv/.save" ]; then
+      if [ $SYSENV_PUSH_DELAY ]; then
+        push_user $user;
+      fi
+    else
+      touch "$home/.config/sysenv/.save";
+    fi
+  fi
+
+
+}
+
+pull_user () {
+  user=$1;
+  ftime=$(date -r "$home/.config/sysenv/.load" +%s);
+  pull_elapsed=$(( $(date +%s) - $ftime ));
+
+  if (( $SYSENV_PULL_DELAY < $pull_elapsed )); then
+    log "Pull: $push_elapsed";
+
+    su $user - -c '/bin/sysenv load';
+  fi
+}
+
+push_user () {
+  user=$1;
+  ftime=$(date -r "$home/.config/sysenv/.save" +%s);
+  push_elapsed=$(( $(date +%s) - $ftime ));
+
+  if (( $SYSENV_PULL_DELAY < $push_elapsed )); then
+    log "Push: $push_elapsed";
+
+    su $user - -c '/bin/sysenv save';
+  fi
+}
+
+log "Starting sysenv service..."
+
+while :
+do
+  users=($(get_users));
+
+  for i in "${users[@]}"
+  do
+    test_user $i;
+  done
+
+	sleep 2
+done

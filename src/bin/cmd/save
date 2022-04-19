@@ -1,14 +1,20 @@
-#!/bin/bash
+#!/bin/bash -i
 #================================================================
 # HEADER
 #================================================================
 #%  save    - save all changes in staged files
 
+set -e;
+
+source "$HOME/.config/sysenv/config";
+
 savetimestamp="$HOME/.config/sysenv/.save";
-branch=$(git symbolic-ref HEAD | sed -e "s/^refs\/heads\///")
+
+yadm add -u;
 
 yadm commit -m "changes from  @ $(date '+%x %X')"
 # syadm push --set-upstream origin master
-yadm push -u origin "$branch"
-
+yadm push origin $SYSENV_BRANCH;
 touch $savetimestamp;
+
+echo "Sysenv ($(whoami)) saved..."

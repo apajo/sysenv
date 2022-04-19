@@ -1,10 +1,16 @@
 #!/bin/bash -i
 
-source /etc/sysenv/src/.profile;
+set -e;
+
+if [ -f "$HOME/.config/sysenv/config" ]
+then
+  source "$HOME/.config/sysenv/config";
+fi
+
 
 run () {
   source /etc/sysenv/src/bin/inc/common;
-  . "/etc/sysenv/src/bin/cmd/$1" 2>>log
+  /etc/sysenv/src/bin/cmd/$1 2>>log
 
   exit;
 }
@@ -19,7 +25,7 @@ while [ $# -gt 0 ]; do
 
     case $arg in
         "service")
-            . "$ROOT/bin/cmd/service"
+            . "/etc/sysenv/src/bin/cmd/service"
             exit;
         ;;
     esac
@@ -31,7 +37,7 @@ while [ $# -gt 0 ]; do
 
     case $arg in
         shortlist)
-            echo $(find "$ROOT/bin/cmd" -maxdepth 1 -printf "%f\n")
+            echo $(find "/etc/sysenv/src/bin/cmd" -maxdepth 1 -printf "%f\n")
         ;;
          *)
             syadm $*;
