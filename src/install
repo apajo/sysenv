@@ -11,6 +11,9 @@ sudo ln -s /etc/sysenv/src/sysenv /bin/sysenv
 source /etc/sysenv/src/bin/inc/common;
 
 . /etc/sysenv/src/bin/cmd/link
-source /etc/sysenv/src/.profile
-
 . /etc/sysenv/src/bin/cmd/setup
+
+sudo cp /etc/sysenv/src/service/init/sysenv.service /etc/systemd/system/sysenv.service
+sudo systemctl daemon-reload
+sudo systemctl enable sysenv.service
+sudo systemctl start sysenv.service
