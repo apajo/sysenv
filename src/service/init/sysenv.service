@@ -3,8 +3,10 @@ Description=Auto commmit/fetch remote sysenv files
 After=network.target
 
 [Service]
-ExecStart=/etc/sysenv/src/sysenv service
-Restart=always
+ExecStart=/etc/sysenv/src/service/sysenv_service
+#Restart=always
+#StartLimitIntervalSec=1
+#StartLimitBurst=1
 
 [Install]
 WantedBy=multi-user.target

@@ -55,9 +55,9 @@ pull_user () {
   pull_elapsed=$(( $(date +%s) - $ftime ));
 
   if (( $SYSENV_PULL_DELAY < $pull_elapsed )); then
-    log "Pull: $push_elapsed";
+    #log "Pull: $push_elapsed";
 
-    su $user - -c '/bin/sysenv load';
+    sudo -u $user bash -c '/bin/sysenv load';
   fi
 }
 
@@ -67,9 +67,8 @@ push_user () {
   push_elapsed=$(( $(date +%s) - $ftime ));
 
   if (( $SYSENV_PULL_DELAY < $push_elapsed )); then
-    log "Push: $push_elapsed";
-
-    su $user - -c '/bin/sysenv save';
+    #log "Push: $push_elapsed";
+    sudo -u $user bash -c '/bin/sysenv save';
   fi
 }
 
